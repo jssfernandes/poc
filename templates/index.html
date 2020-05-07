@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Median House Value</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+    	<input type="text" name="longitude" placeholder="Longitude do Imovel" required="required" />
+      <input type="text" name="latitude" placeholder="Latitude do Imovel" required="required" />
+      <input type="text" name="housing_median_age" placeholder="Idade Media do Imovel dentro do Quarteirao" required="required" />
+      <input type="text" name="total_rooms" placeholder="Total de Quartos a um Quarteirao" required="required" />
+      <input type="text" name="total_bedrooms" placeholder="Total de Quartos a uma quadra" required="required" />
+      <input type="text" name="population" placeholder="Numero total de pessoas que residem dentro de um bloco" required="required" />
+      <input type="text" name="households" placeholder="Numero total de familias por Quarteirao" required="required" />
+      <input type="text" name="median_income" placeholder="Renda Mediana para familias em um quarteirão de casas" required="required" />
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
