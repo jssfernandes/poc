@@ -23,5 +23,4 @@ def predict():
     return render_template('index.html', prediction_text='Median House Value is $ {}'.format(output))
 
 if __name__ == "__main__":
-    app.run(port=80, debug=True)
-    
+    app.run(port=80, debug=True)   
